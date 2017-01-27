@@ -1,0 +1,488 @@
+.rentLocationView {
+/*    left: 50px; */
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333333;
+    position: relative;
+    width: 880px;
+    height: 400px;
+    background: rgba(158, 158, 158, 0.8);
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    @include transition( all 500ms cubic-bezier(0.51, 0, 0.6, 1) 0ms);
+}
+
+#detail_map {
+    width: 700px;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rentReserverView {
+    position: relative;
+    width: 880px;
+    background: white;
+    border-radius: 5px;
+    padding-bottom: 15px;
+}
+.dropdown_button {
+    text-align: left;
+}
+#paymentExpiry, #paymentCVC{
+    margin-left: -120px;
+}
+.rentLocationViewInner {
+    font-size: 20px;
+    text-align: left;
+    color: black;
+    background: #ffffff;
+    position: relative;
+    top: 40px;
+    width: 600px;
+    border-radius:10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+.toolcellmouseover {
+    background: #a3a4a8;
+}
+.circleBorderGreen {
+    position:absolute;
+    top:10px;
+    font-size: 20px;
+    width: 5em; height: 5em;
+    border-radius: 2.5em;
+    background: rgb( 0,150, 0 );
+    opacity:0.6;
+    color: white;
+    text-align: center;
+    line-height: 4.75em;
+}
+
+.circleBorderRed {
+    /* position:absolute; */
+    top:10px;
+    font-size: 20px;
+    width: 5em; height: 5em;
+    border-radius: 2.5em;
+    background: rgb( 200,0, 0 );
+    opacity:0.6;
+    color: white;
+    text-align: center;
+    line-height: 4.75em;
+}
+
+#zipcdoe_form{
+    width: 500px;
+    margin:10px auto 0px auto;
+    background-color:white;
+    border-radius:10px;
+}
+
+.labelCheckbox {
+    vertical-align: top;
+}
+
+.rentLocationLabel {
+    font-size: 16px;
+}
+
+.keepmeArea {
+    margin: 40px auto 25px 70px;
+}
+.keepmeArea .checkbox {
+    font-size: 22px;
+}
+.circleHeading {
+    /* left: 150px; */
+    font-size: 38px;
+    /* font-style: italic; */
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+.rentLocationViewInner .locationSubHeading {
+    position: absolute;
+    top: 125px;
+    left: 20px;
+    font-size: 18px;
+}
+
+.rentLocationView .rentLocationFields {
+    position:absolute;
+    left: 20px;
+    top: 185px;
+}
+.rentLocationFields .rentLocationCell {
+    position: relative;
+    width: 125px;
+    text-align: right;
+    font-size: 16px;
+    color: #575757;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+
+.rentLocationViewInner .rentLocationInput {
+    position: absolute;
+    left: 135px;
+
+}
+
+.rentLocationViewInner .rentLocationInput:focus {
+    border-radius: 5px;
+    border-color: #7ef2f5;
+    border-width: 3px;
+}
+
+
+.rentLocationSubmit_btn {
+    float:right;
+    margin-top:10px;
+    margin-right:58px;
+    background: rgb( 0,150, 0 );
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    padding:12px;
+    height: 50px;
+    width: 100px;
+    cursor:pointer;
+    border-radius: 6px 50px 50px 6px;
+    opacity:0.6;
+}
+
+.rentLocationSubmit_btn:hover {
+    background: rgb( 0,200, 0 );
+    opacity:0.7;
+}
+
+.rentItemView {
+    line-height: 1.5;
+    color: #333333;
+    position: relative;
+    width: 840px;
+    background:rgb(245, 245, 245);
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+}
+
+.rentItemViewInner {
+    font-size: 20px;
+    text-align: left;
+    color: black;
+    background: #ffffff;
+    position: relative;
+    border-radius:10px;
+    padding: 10px;
+}
+.rentedOut_message{
+    background: #C5C5C5;
+    text-align: center;
+}
+.rentCell {
+    position: relative;
+    cursor: pointer;
+    padding: 5px;
+}
+.rentedOut {
+    background: #C5C5C5;
+}
+.rentCell .name {
+    position:absolute;
+    display: inline;
+    left: 100px;
+    padding: 5px;
+    font-size: 1.25em;
+}
+
+.rentCell .address {
+    position:absolute;
+    display: inline;
+    left: 100px;
+    top: 35px;
+    padding: 5px;
+    font-size: 0.75em;
+}
+
+.rentCell .city {
+    position:absolute;
+    display: inline;
+    left: 100px;
+    top: 50px;
+    padding: 5px;
+    font-size: 0.75em;
+}
+
+.rentCell .state {
+    position:absolute;
+    display: inline;
+    left: 200px;
+    top: 50px;
+    padding: 5px;
+    font-size: 0.75em;
+}
+
+
+.rentCell .picture {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    width: 90px;
+    display: inline;
+    width: 40px;
+    height: 50px;
+}
+
+.rentDetails {
+    position: relative;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.rentDetails .name {
+    position:absolute;
+    display: inline;
+    left: 100px;
+    padding: 5px;
+    font-size: 1.25em;
+}
+
+.rentDetails .price {
+    position:absolute;
+    display: inline;
+    left: 100px;
+    padding: 5px;
+    font-size: 1.25em;
+}
+.toolDescArea {
+    display:inline-block;
+    width: 60%;
+    vertical-align: top;
+}
+.toolImageArea {
+    display:inline-block;
+    width: 36%;
+}
+#tooldesc {
+    padding: 15px;
+    font-size: 11pt;
+    max-height: 70px;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.more {
+    cursor: pointer;
+    color: #402930;
+    text-align: right;
+}
+
+.comment {
+    background-color: #f0f0f0;
+    margin: 10px;
+    font-size:11pt;
+    text-align: left;
+    padding: 3px;
+}
+a.morelink {
+    text-decoration:none;
+    outline: none;
+}
+.morecontent span {
+    display: none;
+
+}
+.coinarea{
+    padding:20px;
+}
+.coinleft {
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+}
+.coinright{
+    display: inline-block;
+    width: 72%;
+}
+.rentfor {
+    width: 100px;
+    text-align: center;
+}
+.comparelabel{
+    display: inline-block;
+    vertical-align:top;
+    margin-top:15px;
+    
+}
+.comparelabel p{
+    vertical-align:middle;
+}
+.comparecontent {
+    display: inline-block;
+}
+.comparecontent table td{
+    text-align: center;
+    padding:3px 10px 5px 10px;
+}
+.rentforarea {
+    padding:0 0 20px 20px;
+    width: 25%;
+}
+.line {
+    border:1px solid gray;
+}
+.contents{
+    padding:0px 40px 0 40px;
+}
+.icon-arrow-down{
+    vertical-align: middle;
+}
+.accordion-inner {
+    padding:0px 40px 0px 40px;
+}
+#star{
+    font-size:15px;
+}
+.thumbnail{
+    width: 60px;
+    border:5px solid gray;
+    padding: 0px;
+    cursor: pointer;
+}
+.feedbackarea p{
+    width: 400px;
+    font-size:12pt; 
+}
+.custom_modal {
+   width:300px;
+   margin-left:-170px;
+}
+#creditInfo {
+   width:450px;
+   margin-left:-250px;
+}
+.datepicker {
+    z-index: 1051;
+}
+#expires {
+    margin-left: -55px;
+}
+.feedback{
+    padding:10px;
+    background-color:#F0F0F0;
+    margin:15px 0 0 0;
+}
+.feedbackusername {
+    text-align: right;
+    padding:0px 10px 0px 10px;
+    margin:0px;
+}
+.accordion-inner{
+    min-height:100px;
+}
+.similar_area{
+    width: 20%;
+    padding: 15px;
+    display: inline-block;
+}
+.similar_area img{
+    border: 5px solid gray;
+}
+.similar_area p {
+    text-align: center;
+}
+#more {
+    width: 420px;
+    text-decoration: underline;
+    text-align: right;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #842A15;
+}
+.reserverHeader {
+    width: 100%;
+    display: block;
+}
+.reserveText {
+    width: 60%;
+    display: inline-block;    
+}
+.reserveImage {
+    width: 150px;
+    display: inline-block;
+}
+.reserveText h1{
+    padding: 20px;
+}
+.reserveText p {
+    width :80%;
+    padding: 20px;
+}
+.date_area {
+    display: inline-block;
+    padding: 20px;
+}
+.time_area {
+    display: inline-block;
+    padding: 20px;    
+}
+.label {
+    vertical-align: top;
+    margin-top: 25px;
+}
+.datetime_area {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#searchInput {
+    width: 206px;
+}
+span.twitter-typeahead {
+    width: 215px;
+}
+.searchBox {
+    display: block;
+    height: 80px;
+    background: #FFFFFF;
+}
+.search_area, .arrange_area{
+    float: left;
+    margin: 22px 30px;
+}
+label {
+    text-align: left;
+}
+
+.toolDetails {
+    padding: 15px;
+}
+
+ul.dropdown-menu-form {
+    padding: 5px 10px 0;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+#sort_multiselect .checkbox:hover{
+    color: #000000;
+}
+#sort_multiselect a:hover{
+    background-color: #FFFFFF;
+    background-image: none;
+}
+
+#sort_multiselect .dropdown-menu > .active > a, #sort_multiselect .dropdown-menu > .active > a:hover,#sort_multiselect .dropdown-menu > .active > a:focus{
+    color: #000000;   
+    background-color: #FFFFFF;
+    background-image: none;
+    
+}

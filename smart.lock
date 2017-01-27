@@ -1,0 +1,178 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "router": {},
+      "bootstrap-timepicker": {},
+      "custom-typeahead": {
+        "git": "https://github.com/wangli9142/cutom-typeahead.git",
+        "branch": "master"
+      },
+      "custom-multiselect": {
+        "git": "https://github.com/wangli9142/custom-multiselect.git",
+        "branch": "master"
+      },
+      "meteor-build-a-file-upload-package": {
+        "git": "https://github.com/EventedMind/meteor-build-a-file-upload-package.git",
+        "branch": "master"
+      },
+      "flash-messages": {},
+      "foundation-flash-messages": {},
+      "cron-tick": {},
+      "cron": {},
+      "jquery-ui": {},
+      "jquery-ui-bootstrap": {},
+      "x-editable-bootstrap": {},
+      "stripe": {},
+      "cookie": {},
+      "iron-router": {},
+      "bootboxjs": {},
+      "stringify-pretty": {},
+      "moment": {},
+      "bootstrap-datepicker2": {},
+      "jqbootstrapvalidation": {},
+      "bootstrap-slider-touch": {},
+      "nprogress": {},
+      "bootstrap-3": {},
+      "bootstrap-datetimepicker": {},
+      "underscore-string": {}
+    },
+    "packages": {
+      "router": {
+        "git": "https://github.com/tmeasday/meteor-router.git",
+        "tag": "v0.5.4.1",
+        "commit": "d00e380dda2184b70e909fc4a0fb5358d602c586"
+      },
+      "bootstrap-timepicker": {
+        "git": "https://github.com/BenjaminRH/meteor-bootstrap-timepicker.git",
+        "tag": "v0.1.0",
+        "commit": "fa61edb82752e5c682dbaafd5412f4d29f8b72e0"
+      },
+      "custom-typeahead": {
+        "git": "https://github.com/wangli9142/cutom-typeahead.git",
+        "branch": "master",
+        "commit": "3a378eca8d2e2b076827b9819ad73f7a38fdbf49"
+      },
+      "custom-multiselect": {
+        "git": "https://github.com/wangli9142/custom-multiselect.git",
+        "branch": "master",
+        "commit": "ba21752deebeb97c1c447b6dce08e7d594f37de0"
+      },
+      "meteor-build-a-file-upload-package": {
+        "git": "https://github.com/EventedMind/meteor-build-a-file-upload-package.git",
+        "branch": "master",
+        "commit": "ebfeee4a808ccda30b9ce7e03cac8057f6429148"
+      },
+      "flash-messages": {
+        "git": "https://github.com/camilosw/flash-messages.git",
+        "tag": "v0.2.1",
+        "commit": "62cf1ee531684808b91dbe3ff15e63f6d5af1c66"
+      },
+      "foundation-flash-messages": {
+        "git": "https://github.com/datariot/foundation-flash-messages.git",
+        "tag": "v0.1.2",
+        "commit": "d44ed2a92057bb7967cb6f9e5d5148d99c340d96"
+      },
+      "cron-tick": {
+        "git": "https://github.com/tmeasday/meteor-cron.git",
+        "tag": "v0.0.4",
+        "commit": "44cff9116af510fe53704fdeeff57c444ceb75ba"
+      },
+      "cron": {
+        "git": "https://github.com/alexsuslov/Meteor.cron.git",
+        "tag": "v0.0.1",
+        "commit": "5216d14472fee7b692e8371aadc9f35f54ba9bb0"
+      },
+      "jquery-ui": {
+        "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
+        "tag": "v1.9.2",
+        "commit": "c437d45edcf1367df8d5ffa8bad2867758030bd2"
+      },
+      "jquery-ui-bootstrap": {
+        "git": "https://github.com/TimHeckel/meteor-jquery-ui-bootstrap.git",
+        "tag": "v0.1.2",
+        "commit": "fa742a85639307003e105898e15b631394b63509"
+      },
+      "x-editable-bootstrap": {
+        "git": "https://github.com/nate-strauser/meteor-x-editable-bootstrap.git",
+        "tag": "v1.4.6.2",
+        "commit": "d3fcead1dd2302e30522e8c09d020f9a3d312cd0"
+      },
+      "stripe": {
+        "git": "https://github.com/appleifreak/stripe-meteor.git",
+        "tag": "v1.5.0",
+        "commit": "438fba2f6ef840ef63bf07df918c32fe0291bf39"
+      },
+      "cookie": {
+        "git": "https://github.com/chuangbo/meteor-cookie.git",
+        "tag": "v1.0.2.3",
+        "commit": "f39620ef5650642c38f51b512d82a9b34924b609"
+      },
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "tag": "v0.6.2",
+        "commit": "ce56e58b45624dce992490f3a1c10f10d3948bae"
+      },
+      "bootboxjs": {
+        "git": "https://github.com/TimHeckel/meteor-bootboxjs.git",
+        "tag": "v3.2.2",
+        "commit": "580adfebfa12b4d2186a80cec1109dab74ad6228"
+      },
+      "stringify-pretty": {
+        "git": "https://github.com/dburles/meteor-stringify-pretty.git",
+        "tag": "v0.1.4",
+        "commit": "1cfc549aa8417920f3688d76cf7a6e2dc075a829"
+      },
+      "moment": {
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.2.1",
+        "commit": "9ee12e714afe56b189f53076447b7b54f3012065"
+      },
+      "bootstrap-datepicker2": {
+        "git": "https://github.com/deepwell/meteor-bootstrap-datepicker.git",
+        "tag": "v1.2.0",
+        "commit": "b7de18a7cc651ea665cda75048663f90d1a11d10"
+      },
+      "jqbootstrapvalidation": {
+        "git": "https://github.com/nate-strauser/meteor-jqbootstrapvalidation.git",
+        "tag": "v0.1.0",
+        "commit": "2af4625d41a9b24311544a53790f14fa38c27b10"
+      },
+      "bootstrap-slider-touch": {
+        "git": "https://github.com/Dsyko/meteor-bootstrap-slider-touch.git",
+        "tag": "v2.0.1",
+        "commit": "c0b20f7851728ac5e265ecaef496a1d756ca1686"
+      },
+      "nprogress": {
+        "git": "https://github.com/zhouzhuojie/meteor-nprogress.git",
+        "tag": "v0.0.3",
+        "commit": "ffd1c5dd400af64121197f4e637a215c4b6b1fc7"
+      },
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v0.3.7",
+        "commit": "5dd0d142c870647b910be80bc777b96f0dd45e5e"
+      },
+      "bootstrap-datetimepicker": {
+        "git": "https://github.com/Elfoslav/bootstrap-datetimepicker.git",
+        "tag": "v0.0.6",
+        "commit": "728e5d603c377652e6909e180358364c46ce95ff"
+      },
+      "underscore-string": {
+        "git": "https://github.com/possibilities/meteor-underscore-string.git",
+        "tag": "v2.2.0rc.1",
+        "commit": "dec21fac23310daf76dc19f246749e7beb48af03"
+      },
+      "page-js-ie-support": {
+        "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
+        "tag": "v1.3.5",
+        "commit": "b99ed8380aefd10b2afc8f18d9eed4dd0d8ea9cb"
+      },
+      "HTML5-History-API": {
+        "git": "https://github.com/tmeasday/meteor-HTML5-History-API.git",
+        "tag": "v4.0.0",
+        "commit": "dc4965f1424cfca625ec3fbea17eace03f8e32c5"
+      }
+    }
+  }
+}

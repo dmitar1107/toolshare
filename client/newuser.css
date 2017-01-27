@@ -1,0 +1,128 @@
+#newuser {
+    width:600px;
+    height: 400px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.userloginarea {
+    font-size: 16px;
+    line-height: 1.5;
+    background: #2b1509;
+    color: #333333;
+    position: relative;
+    left: 100px;
+    top: 10px;
+    width: 880px;
+    height:290px;
+    background:rgb(245, 245, 245);
+    border-radius: 10px;
+    padding: 10px;
+}
+.userloginformarea {
+    font-size: 20px;
+    text-align: left;
+    color: black;
+    background: #ffffff;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    width: 460px;
+    height: 280px;
+    border-radius:10px;
+    padding: 10px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.userloginformarea .loanStepOneFields {
+    position:absolute;
+    left: 20px;
+    top: 70px;
+}
+.userloginformarea .loanStepOneCell {
+    position: relative;
+    width: 125px;
+    text-align: right;
+    font-size: 16px;
+    color: #575757;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+.bill_area {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+.userloginformarea .loanStepOneInput {
+    position: absolute;
+    left: 135px;
+
+}
+
+.userloginformarea .loanStepOneInput:focus {
+    border-radius: 5px;
+    border-color: #7ef2f5;
+    border-width: 3px;
+}
+.createnewaccount {
+	top: 15px;
+    /*width: 880px; */
+    height: 1300px;
+    border-radius: 10px;
+    background:none repeat scroll 0% 0% rgb(245, 245, 245);
+    margin-left:auto;
+    margin-right:auto;
+}
+.the-legend {
+    border-style: none;
+    border-width: 0;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 0;
+    width:auto;
+}
+.the-fieldset {
+    border: 2px groove threedface #444;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+            width:250px;
+    float:left;
+    margin-left:10px;
+}
+.form-horizontal .controls {
+    margin-left:140px;
+}
+
+.form-horizontal .ccmonthcontrol {
+    margin-left:140px;
+    width:20px;
+}
+
+.form-horizontal .ccyearcontrol {
+    margin-left:5px;
+    width:40px;
+}
+
+.bankcheckArea {
+    width: 400px;
+    margin: 15px auto 25px auto;
+}
+#createform .control-label {
+    width:80px;
+}
+.help-block{
+    font-size:12px;
+}
+#loginform{
+    width: 400px;
+    margin:10px auto 0px auto;
+    background-color:white;
+    border-radius:10px;
+}
+
+.stripe-img {
+    float: right;
+    position: relative;
+    bottom:80px;
+}

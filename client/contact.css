@@ -1,0 +1,16 @@
+.contactView {
+    position: relative;
+    top: 15px;
+    width: 880px;
+    border-radius: 10px;
+    background:none repeat scroll 0% 0% rgb(245, 245, 245);
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tooldata_header{
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}

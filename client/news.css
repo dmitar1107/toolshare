@@ -1,0 +1,30 @@
+.newsItem {
+    position: relative;
+    left: 50px;
+}
+
+.newsArea {
+    /*    left: 50px; */
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333333;
+    position: relative;
+    width: 880px;
+    background: rgba(158, 158, 158, 0.8);
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.newsView {
+    font-size: 20px;
+    text-align: left;
+    color: black;
+    background: #ffffff;
+    position: relative;
+    width: 600px;
+    border-radius:10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 20px 5px 20px;
+}

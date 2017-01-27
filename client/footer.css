@@ -1,0 +1,38 @@
+.footer_bar {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 880px;
+    height: 20px;
+    background: rgba(158, 158, 158, 0.8);
+    padding: 5px 10px 5px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.footer_item {
+    font:14px arial;
+    float: left;
+    position: relative;
+    width: 180px;
+    text-align: left;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    color: white;
+    cursor:pointer;
+}
+
+.footer_item:hover {
+    text-decoration: underline;
+}
+
+.footer_copyright {
+    position: relative;
+    float: right;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font:10px arial;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}

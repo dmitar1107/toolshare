@@ -1,0 +1,53 @@
+
+<template name="header">
+    <div class="header">
+        <a href="/">
+            <div class ="header_title">
+                Rent the equipment you need for your next project
+            </div>
+            <div class ="header_subtitle">
+                Affordable...Easy...Safe
+            </div>
+        </a>
+        {{#if isAdmin}}
+            <div class="menu_item adminMenu">
+                <a href="/admin/view">Go to Admin Panel</a>
+            </div>
+        {{/if}}        
+    </div>
+    <div class="menu">
+        <a href="/"> <img class="logo" src="/logo1_plain.svg" /> </a>
+        <div class="menu_inner">
+            <div class="menu_item">
+                How It Works
+            </div>
+            {{#if currentUser}}
+                <div class="menu_item" id="myrentals">
+                    My Rentals
+                </div>
+                <div class="menu_item" id="myaccount">
+                    My Account
+                </div>            
+            {{/if}}            
+            <!--div class=menu_item>
+                <span onclick="dialog_modal({title: 'Sign In', template: 'hello', content: { html: 'world' }, size: '500 x 400'});">Sign In</span>
+                {{>dialog-modal}}
+            </div-->
+            <div class="menu_item">
+                {{#if currentUser}}
+                    {{customsignOut}}
+                {{else}}
+                    {{customsignIn}}
+                {{/if}}
+             </div>
+            <div class="menu_item">
+                Help / Contact Us
+            </div>
+
+        </div>
+    </div>
+</template>
+<template name="hello">
+    <div style="border:1px solid red;">{{{html}}}
+    </div>
+</template>

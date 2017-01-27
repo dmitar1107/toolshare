@@ -1,0 +1,173 @@
+.loanConfirm {
+    line-height: 1.5;
+    color: #333333;
+    position: relative;
+    width: 840px;
+    background:rgb(245, 245, 245);
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+	padding: 10px;
+}
+.area_feedback {
+	width: 400px;
+	margin-top:: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+	border:1px solid rgba(158, 158, 158, 0.8)
+}
+.btn_complete {
+	display: inline-block;
+	background: rgb( 150,150, 150);
+	border-radius: 6px;
+	cursor:pointer;
+	padding: 5px;
+	font:28px papyrus, sans-serif;
+	text-align: center;
+	color: white;
+	opacity:0.6;
+	text-decoration: none;
+}
+#textarea {
+	margin-top: 20px;
+}
+.pickupContent {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	/*border:1px solid rgba(158, 158, 158, 0.8)*/
+}
+.content_text {
+	margin-top: 15px;
+	padding:10px 0px 0px 50px;
+}
+.content_text .label {
+	text-align: right;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 16px;
+	margin:0px;
+	padding: 5px;
+}
+.content_text .content{
+	display: inline-block;
+	padding-left: 10px;
+	font-size: 16px;
+}
+
+.content_left {
+	display:inline-block;
+	width: 70%;
+	vertical-align: top;
+}
+.content_right .thumbnail {
+	width: 70px;
+}
+.content_right{
+	display:inline-block;
+	width: 28%;
+}
+.confirm_area{
+    line-height: 1.5;
+    color: #333333;
+    position: relative;
+    width: 880px;
+    background:rgb(245, 245, 245);
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+	padding-bottom: 10px;
+	
+}
+.pickupConfirm {
+    line-height: 1.5;
+    color: #333333;
+    position: relative;
+    width: 880px;
+    background:rgb(245, 245, 245);
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+	padding-bottom: 10px;
+}
+.errormessage {
+	padding: 20px;
+	background: #F55F04;
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+}
+.tooldata_header h3 {
+	text-align: left;
+}
+.tooldata {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid rgba(158, 158, 158, 0.8);
+	padding: 5px 20px;
+}
+.tooldata_area {
+	text-align: left;
+}
+.confirm_btns{
+	margin-top: 10px;
+	text-align: right;
+}
+.btn_accept {
+    display: inline-block;
+    background: rgb( 0,200, 0 );
+    border-radius: 6px;
+    cursor:pointer;
+    padding: 5px;
+    font:28px papyrus, sans-serif;
+    text-align: center;
+    color: white;
+    opacity:0.6;
+	text-decoration: none;
+}
+.btn_accept:hover {
+    background: rgb( 0,200, 0 );
+    opacity:0.9;
+	text-decoration: none;
+}
+.btn_decline {
+    display: inline-block;
+    background: rgb( 220,0, 0 );
+    border-radius: 6px;
+    cursor:pointer;
+    padding: 5px;
+    font:28px papyrus, sans-serif;
+    text-align: center;
+    color: white;
+	text-decoration: none;
+}
+fieldset {
+  padding: 1em;
+  font:80%/1 sans-serif;
+  }
+label {
+  float:left;
+  width:25%;
+  margin-right:0.5em;
+  padding-top:0.2em;
+  text-align:right;
+  font-weight:bold;
+ }
+.custom_row {
+    width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.custom_row .label {
+	margin-top: 15px;
+}
+.custom_row .date_area, .custom_row .time_area{
+	padding: 10px 20px;
+}
+.button_area a{
+	margin-left: 100px;
+}

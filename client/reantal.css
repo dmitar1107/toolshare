@@ -1,0 +1,102 @@
+.rental_list {
+    line-height: 1.5;
+    color: #333333;
+    position: relative;
+    width: 880px;
+    background: #FFFFFF;
+    padding: 10px;
+    margin: 10px auto 10px auto;
+    @include transition( all 500ms cubic-bezier(0.51, 0, 0.6, 1) 0ms);
+}
+.rental_list th {
+    text-align: center;
+}
+.rental_list td {
+    text-align: center;
+    vertical-align: middle;
+}
+.status_list {
+    font-weight: bold;
+    font-style: italic;
+}
+.listitem {
+    cursor: pointer;
+}
+.detailAreas {
+    display: inline-block;
+    height: 400px;
+    width: 400px;
+}
+.middle_line {
+    display: inline-block;
+    height: 300px;
+    width: 1px;
+    border-right: 1px solid #d94284;
+    vertical-align: top;
+    margin-top: 50px;
+}
+.rental_area {
+    width: 880px;
+    background: #FFFFFF;
+}
+.rentrow {
+    cursor: pointer;
+}
+.r_row {
+    display: block;
+    margin-top: 40px;
+}
+.r_col {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    vertical-align: top;
+}
+.detailHead {
+    width: 600px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.detailHead  div{
+    margin-left: 30px;
+}
+.lined_text {
+    border-bottom: 1px solid #d9d9d9;
+    text-align: left;
+}
+.r_desc {
+    color: #818682;
+    font-size: 10pt;
+}
+.r_label {
+    font-size: 12pt;
+    font-weight: bold;
+}
+.r_content {
+    font-size: 10pt;
+}
+.r_left {
+    display: inline-block;
+    padding: 20px;
+    vertical-align: top;
+}
+.r_right {
+    display: inline-block;
+}
+.r_panel {
+    width: 250px;
+    /*height: 300px;*/
+    margin-top: 15px;
+    border: 1px solid #868686;
+    border-radius: 10px;
+    background: #d9d9d9;
+    padding: 10px;
+}
+.r_thumbnail {
+    width: 40px;
+    border: 3px solid #868686;
+}
+.rentrow p {
+    font-size: 10pt;
+}

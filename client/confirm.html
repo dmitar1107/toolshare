@@ -1,0 +1,293 @@
+<template name="loading">
+		<div style="border:1px solid red;">
+			Loading ...
+		</div>
+</template>
+<template name="sendFeedback">
+	<div class="home">
+		<div class="confirm_area">
+			<h3>Feedback for tool from you.</h3>
+			<div class="area_feedback">
+				{{> flashMessages}}
+				<div id="star_area" align="center">
+					<label for="star">Marks: </label>
+					<div id="star"></div>
+				</div>
+				<div id="textarea">
+					<label for="comment">Comment: </label>
+					<textarea id="comment"></textarea>
+				</div>
+			</div>
+		    <div class="tooldata_header confirm_btns" align="right" style="width: 400px;">
+		   	 	<!--a href="#" class="btn_complete">Yes</a-->
+		   	 	<a href="#" class="btn_accept">Yes</a>
+		   	 <!--a href="#" class="btn_decline">No</a-->
+		    </div>				
+		</div>
+	</div>
+</template>
+
+<template name="sendrentfeedback">
+	<div class="home">
+		<div class="confirm_area">
+			<h3>Feedback for rent user from you.</h3>
+			<div class="area_feedback">
+				{{> flashMessages}}
+				<div id="star_area">
+					<div id="star"></div>
+				</div>
+				<div id="textarea">
+					<label for="comment">Comment: </label>
+					<textarea id="comment"></textarea>
+				</div>
+			</div>
+		    <div class="tooldata_header confirm_btns" align="right" style="width: 400px;">
+		   	 	<!--a href="#" class="btn_complete">Yes</a-->
+		   	 	<a href="#" class="btn_accept">Yes</a>
+		   	 <!--a href="#" class="btn_decline">No</a-->
+		    </div>				
+		</div>
+	</div>
+</template>
+
+<template name="pickupConfirm">
+	<div class="home">
+		<div class="loanConfirm">
+			<div>
+				{{> flashMessages}}
+			</div>
+
+			<form class="form-horizontal">
+				<fieldset>
+				<!-- Form Name -->
+					<legend>Did you receive the {{tool}} from the {{renter}} clearly?</legend>
+					<div class="pickupContent">
+						<div class="content_left">				
+					    	<div class="custom_row">
+					      	  	<div class="label">
+					       		 Pick up:
+					       	  	</div>       
+					          	<div class="date_area">
+					            	<div id="datetimepicker1">
+					                	<div class="input-append date" id="dpMonths"  data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+					                    	<input class="span2" id="datepicker1" name="datepicker1" size="16" type="text" value="{{pickupdate}}" disabled/>
+					                    	<span class="add-on"><i class="icon-calendar"></i></span>
+					                	</div>                                        
+					            	</div>
+					           	</div>
+					           	<div class="time_area">
+					            	<div class="input-append bootstrap-timepicker">
+					                	<input id="timepicker1" type="text" class="input-small" value="{{pickuptime}}" disabled/>
+					                	<span class="add-on"><i class="icon-time"></i></span>
+					            	</div>
+					           	</div>
+					    	</div>
+							<div class="custom_row">
+					    		<div class="label">
+					     			Return:&nbsp;
+					     	   	</div>
+					       	  	<div class="date_area">
+						       		<div id="datetimepicker2"	>
+						                <div class="input-append date" id="dpMonths"  data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+						                    <input class="span2" id="datepicker2" name="datepicker2" size="16" type="text" value="{{enddate}}" disabled/>
+						                    <span class="add-on"><i class="icon-calendar"></i></span>
+						                </div>                                        
+						          	 </div>
+				            	</div>
+					      	  	<div class="time_area">
+					        		<div class="input-append bootstrap-timepicker">
+					         			<input id="timepicker2" type="text" class="input-small" value="{{endtime}}" disabled/>
+					         			<span class="add-on"><i class="icon-time"></i></span>
+					            	</div>            
+					       		</div>
+					   	 	</div>
+							<div class="custom_row">
+					      	  	<div class="label">
+					       		 Price:
+					       	  	</div>
+								<div class="date_area" style="padding:5px 38px;"><h4>${{price}}</h4></div>
+							</div>						   	 						    	
+					    </div>
+						<div class="content_right" align="right">
+							<a data-toggle="modal" href="#myThumbnailModal" >
+							    <img class="thumbnail" src={{thumbnail}} width="100" height="80" alt="" title=""/>
+							</a>
+							<div class="modal fade" id="myThumbnailModal" style="display:none;padding:5px 5px 0 5px;">					<img src={{thumbnail}} width="600" height="400" alt="" title="" />
+							</div>  						
+						</div>					    
+					</div>
+	
+					<div class="button_area">
+			   	 		<a href="#" class="btn_accept">Yes</a>
+					   	<!--a href="#" class="btn_decline">No</a-->
+					</div>
+				</fieldset>
+			</form>	
+
+				
+
+		</div>
+	</div>
+</template>
+<template name="returnConfirm">
+	<div class="home">
+		<div class="loanConfirm">
+			<div>
+				{{> flashMessages}}
+			</div>
+
+			<form class="form-horizontal">
+				<fieldset>
+				<!-- Form Name -->
+					<legend>Did you receive the {{tool}} from the {{renter}} clearly?</legend>
+					<div class="pickupContent">
+						<div class="content_left">				
+					    	<div class="custom_row">
+					      	  	<div class="label">
+					       		 Pick up:
+					       	  	</div>       
+					          	<div class="date_area">
+					            	<div id="datetimepicker1">
+					                	<div class="input-append date" id="dpMonths"  data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+					                    	<input class="span2" id="datepicker1" name="datepicker1" size="16" type="text" value="{{pickupdate}}" disabled/>
+					                    	<span class="add-on"><i class="icon-calendar"></i></span>
+					                	</div>                                        
+					            	</div>
+					           	</div>
+					           	<div class="time_area">
+					            	<div class="input-append bootstrap-timepicker">
+					                	<input id="timepicker1" type="text" class="input-small" value="{{pickuptime}}" disabled/>
+					                	<span class="add-on"><i class="icon-time"></i></span>
+					            	</div>
+					           	</div>
+					    	</div>
+							<div class="custom_row">
+					    		<div class="label">
+					     			Return:&nbsp;
+					     	   	</div>
+					       	  	<div class="date_area">
+						       		<div id="datetimepicker2"	>
+						                <div class="input-append date" id="dpMonths"  data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+						                    <input class="span2" id="datepicker2" name="datepicker2" size="16" type="text" value="{{enddate}}" disabled/>
+						                    <span class="add-on"><i class="icon-calendar"></i></span>
+						                </div>                                        
+						          	 </div>
+				            	</div>
+					      	  	<div class="time_area">
+					        		<div class="input-append bootstrap-timepicker">
+					         			<input id="timepicker2" type="text" class="input-small" value="{{endtime}}" disabled/>
+					         			<span class="add-on"><i class="icon-time"></i></span>
+					            	</div>            
+					       		</div>
+					   	 	</div>
+							<div class="custom_row">
+					      	  	<div class="label">
+					       		 Price:
+					       	  	</div>
+								<div class="date_area" style="padding:5px 38px;"><h4>${{price}}</h4></div>
+							</div>						   	 						    	
+					    </div>
+						<div class="content_right" align="right">
+							<a data-toggle="modal" href="#myThumbnailModal" >
+							    <img class="thumbnail" src={{thumbnail}} width="100" height="80" alt="" title=""/>
+							</a>
+							<div class="modal fade" id="myThumbnailModal" style="display:none;padding:5px 5px 0 5px;">					<img src={{thumbnail}} width="600" height="400" alt="" title="" />
+							</div>  						
+						</div>					    
+					</div>
+	
+					<div class="button_area">
+			   	 		<a href="#" class="btn_accept">Yes</a>
+					   	<!--a href="#" class="btn_decline">No</a-->
+					</div>
+				</fieldset>
+			</form>	
+
+				
+
+		</div>
+	</div>
+</template>
+<template name="loanConfirms">
+<div class="home">
+	<div class="loanConfirm">
+		<div>
+		{{> flashMessages}}
+		</div>
+		<form class="form-horizontal">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>Comments to {{loanuser}}</legend>
+				<div class="custom_row">
+		      	  	<div class="label">
+		       		 Tool name:
+		       	  	</div>
+		       	  	<div class="date_area" style="padding:5px 10px;"><h4>{{toolname}}</h4></div>
+				</div>
+				<div class="custom_row">
+		      	  	<div class="label">
+		       		 Price:
+		       	  	</div>
+					<div class="date_area" style="padding:5px 38px;"><h4>${{price}}</h4></div>
+				</div>			
+
+		    	<div class="custom_row">
+		      	  	<div class="label">
+		       		 Pick up:
+		       	  	</div>       
+		          	<div class="date_area">
+		            	<div id="datetimepicker1">
+		                	<div class="input-append date" id="dpMonths"  data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+		                    	<input class="span2" id="datepicker1" name="datepicker1" size="16" type="text" value="{{pickupdate}}" disabled/>
+		                    	<span class="add-on"><i class="icon-calendar"></i></span>
+		                	</div>                                        
+		            	</div>
+		           	</div>
+		           	<div class="time_area">
+		            	<div class="input-append bootstrap-timepicker">
+		                	<input id="timepicker1" type="text" class="input-small" value="{{pickuptime}}" disabled/>
+		                	<span class="add-on"><i class="icon-time"></i></span>
+		            	</div>
+		           	</div>
+		    	</div>
+		  	    <div class="custom_row">
+		    		<div class="label">
+		     			Return:&nbsp;
+		     	   	</div>
+		       	  	<div class="date_area">
+			       		<div id="datetimepicker2"	>
+			                <div class="input-append date" id="dpMonths"  data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+			                    <input class="span2" id="datepicker2" name="datepicker2" size="16" type="text" value="{{enddate}}" disabled/>
+			                    <span class="add-on"><i class="icon-calendar"></i></span>
+			                </div>                                        
+			          	 </div>
+	            	</div>
+		      	  	<div class="time_area">
+		        		<div class="input-append bootstrap-timepicker">
+		         			<input id="timepicker2" type="text" class="input-small" value="{{endtime}}" disabled/>
+		         			<span class="add-on"><i class="icon-time"></i></span>
+		            	</div>            
+		       		</div>
+		   	 	</div>
+				<div class="custom_row">
+		    		<div class="label">
+		     			Comment:&nbsp;
+		     	   	</div>
+					<div class="date_area">
+						<textarea style="width: 300px;" id="comment" name="comment"></textarea>
+					</div>
+				</div>		
+			</fieldset>
+		</form>	
+		 <div class="tooldata_header confirm_btns" align="right">
+			 <a href="#" class="btn_accept">Accept</a>
+			 <a href="#" class="btn_decline">Decline</a>
+		 </div>	
+	</div>
+ 
+</div>
+</template>
+<template name="nopermission">
+
+</template>

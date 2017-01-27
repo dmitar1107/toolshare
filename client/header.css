@@ -1,0 +1,120 @@
+.menu {
+    position: relative;
+    width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    height: 35px;
+    border-radius: 10px 10px 0px 0px;
+    background: rgba(158, 158, 158, 0.8);
+    padding: 10px 10px 20px 10px;
+}
+
+.menu .menu_inner {
+    position: relative;
+    float:left;
+    width: 770px;
+    height: 35px;
+    background: white;
+    border-radius: 5px;
+    padding-left: 110px;
+}
+
+.menu .menu_item {
+    position: relative;
+    font:16px arial;
+    font-variant: small-caps;
+    float: left;
+    display: block;
+    width: 154px;
+    height: 30px;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    background: white;
+    border-radius: 3px;
+    border-color: black;
+    cursor: pointer;
+    font-weight:bold;
+}
+
+.menu .menu_item:hover {
+    background: rgba(0, 0, 0, 0.85);
+    color:white;
+    text-decoration: underline;
+}
+
+.menu_item a {
+    color:#000000;
+    text-decoration: none;
+}
+.menu_item a:hover{
+    color:#FFFFFF;
+    text-decoration: underline;
+}
+.header {
+    /*
+        left: 50px;
+    */
+    position: relative;
+    background: rgba(0, 0, 0, 0.52);
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1.75em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: auto;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header a {
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.header_title {
+    color: white;
+    font-size: 3.00vw;;
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6), 0px -1px 1px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.header_subtitle {
+    color: white;
+    font-size: 2.2vw;;
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6), 0px -1px 1px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.logo {
+    text-decoration:none;
+    position: absolute;
+    z-index: 10;
+    transform:rotate(-6deg);
+    -ms-transform:rotate(-6deg); /* IE 9 */
+    -webkit-transform:rotate(-6deg); /* Safari and Chrome */
+    width:250px;
+    height:130px;
+    opacity: 1.0;
+    top: -45px;
+    left: -80px;
+}
+
+.logo:hover {
+    cursor:pointer;
+}
+
+.adminMenu a {
+    font-size: 12px;
+    color: #FFFFFF;
+    position: absolute;
+    left: 25px;
+    top: 100px;
+}

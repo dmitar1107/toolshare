@@ -1,0 +1,57 @@
+.toolistview {
+    height: 150px;
+    overflow: auto;
+}
+.toolstable {
+    max-height: 600px;
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 10px auto 10px auto;
+}
+.toollist_area {
+    padding: 5px;
+}
+.toollist_area div{
+    display: inline-block;
+}
+.toollist {
+    width: 500px;
+    overflow: ellipsis;
+    text-align: left;
+    border-bottom: 1px solid #d8d8d8;
+}
+#adminTool {
+    height: 600px;
+}
+.adminViewInner {
+    font-size: 20px;
+    text-align: left;
+    color: black;
+    background: #ffffff;
+    position: relative;
+    top: 10px;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius:10px;
+    padding: 10px;
+}
+
+.adminViewHeading {
+    position: relative;
+    text-decoration:underline;
+    margin-left: 40px;
+}
+.tab_inner {
+    width: 840px;
+    background: #FFFFFF;
+    padding: 20px;
+}
+.edit_cat, .remove_cat {
+    display: inline-block;
+}
+.catList {
+    width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}

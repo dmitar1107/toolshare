@@ -1,0 +1,280 @@
+<template name="loginView">
+    {{#if serveCurrentLoginIs "createNewUser" }}
+        {{> createNewUser}}
+    {{/if}}
+    {{#if serveCurrentLoginIs "login" }}
+        {{> newuser}}
+    {{/if}}    
+</template>
+
+<template name="newuser">
+    {{#if currentUser}}
+    {{currentUser.profile.login}}
+    {{/if}}    
+    <div class="home">
+
+        <div class="row">
+
+                <form class="form-horizontal well" id="loginform" data-validate="yes">
+                    {{> flashMessages}}
+                    <fieldset>
+                        <legend style="margin-bottom:10px; text-align:center; font-size:38px;"><h2>Sign In</h2></legend>
+                        <div class="control-group">
+                            <label class="control-label" style="margin-right:10px; width:30%" for="email">Email:</label>
+                            <div class="controls">
+                                <input type="text" id="email" name="email" maxlength="100" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" placeholder="john.doe@youremail.com" class="input-large" required="required">
+                                    <span class="help-inline"></span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" style="margin-right:10px; width:30%" for="password">Password:</label>
+                            <div class="controls">
+                                <input type="password" name="password" id="password" placeholder="type your password" class="input-large" required="required"/>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                               <button type="button" id="submit" class="btn btn-success button-loading" data-loading-text="Loading...">Sign in</button>
+                               <button type="button" class="btn btn-danger button-loading" data-loading-text="Loading..." id="createnew">Create new Account</button>
+                           </div>
+                        </div>
+                    </fieldset>
+                </form>
+        </div>
+    </div>
+    </div>
+</template>
+
+<template name="createNewUser">
+    <div class="home">
+    <div class="createnewaccount">
+            <!--div class="span3 hidden-phone"></div-->
+            <div class="span6" id="form-login" style="width:100%;margin:0px;">
+                <form class="form-horizontal well" id="createform" style="border:none;">
+                    <fieldset class="well the-fieldset">
+                        <legend class="the-legend">NAME</legend>
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label>Salutation</label>
+                            </div>
+                            <div class="controls">
+                                <select class="select_salutation" id="select_salutation" name="select_salutation" required>
+                                    <option value="1">Mr</option>
+                                    <option value="2">Mrs</option>
+                                    <option value="3">Dr</option>
+                                    <option value="4">etc</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label>First Name</label>
+                            </div>
+                            <div class="controls">
+                                <input type="text" placeholder="Type your First Name" autocomplete="off" class="input-large" name="first_name" id="first_name" required="required" />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label>Middle Initial</label>
+                            </div>
+                            <div class="controls">
+                                <input type="text" autocomplete="off" placeholder="Type your Middle Initial" class="input-large" name="middle_initial" id="middle_initial" />
+                            </div>
+                        </div>                        
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label>Last Name</label>
+                            </div>
+                            <div class="controls">
+                                <input type="text" autocomplete="off" placeholder="Type your Last name" class="input-large" name="last_name" id="last_name" required="required"/>
+                            </div>
+                        </div> 
+                        <div class="control-group">
+                            <div class="control-label"><label>Password</label></div>
+                            <div class="controls">
+                                <input type="password" autocomplete="off" name="password1" id="password1" required/>
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="control-label"><label>Re-enter Password</label></div>
+                            <div class="controls">
+                                <input
+                                type="password"
+                                data-validation-match-match="password1"
+                                name="conpassword" id="conpassword" autocomplete="off" data-validation-match-message=
+                                "Please re-type your password."/>
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label>Gender</label>
+                            </div>                            
+                            <div class="controls">
+                                <select class="select_gender" name="gender" id="gender">
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                </select>
+                            </div>
+                        </div>                        
+ 
+                
+                    </fieldset>
+                    <fieldset class="well the-fieldset">
+                        <legend class="the-legend">CONTACT</legend>
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label>Full Address</label>
+                            </div>
+                            <div class="controls">
+                                <div id='input'>
+                                  <input id="fulladdress" name="fulladdress" required="required" placeholder='Start typing a place name...' type='text' autocomplete="off"/>  
+                                  <input type="hidden" name="lat" id="lat" value="" />
+                                  <input type="hidden" name="lng" id="lng" value="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                             <div class="control-label">
+                                 <label>Phone Number</label>
+                             </div>
+                             <div class="controls">
+                                 <input type="text" autocomplete="off" placeholder="Type your Phone Number" class="input-large" name="phone_number" id="phone_number" />
+                             </div>
+                         </div>
+                         <div class="control-group">
+                             <div class="control-label">
+                                 <label>SMS Number</label>
+                             </div>
+                             <div class="controls">
+                                 <input type="text" autocomplete="off" placeholder="Type your SMS Number" class="input-large" name="sms_number" id="sms_number" />
+                             </div>
+                         </div>                        
+                         <div class="control-group">
+                             <div class="control-label">
+                                 <label>Email</label>
+                             </div>
+                             <div class="controls">
+                                 <input type="text" autocomplete="off" placeholder="Type your Email" class="input-large" name="email_data" id="email_data" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" required="required"/>
+                             </div>
+                         </div>                      
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label>Birthdate</label>
+                            </div>
+                            <div id="datetimepicker1" class="controls">
+                                <div class="input-append date" id="dpMonths"  data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+                                    <input class="span2" id="birthdate" name="birthdate" size="16" type="text" value="{{today}}"/>
+                                    <span class="add-on"><i class="icon-calendar"></i></span>
+                                </div>                                        
+                            </div>
+                        </div>
+                         <div class="control-group">
+                             <div class="control-label">
+                                 <label>Language</label>
+                             </div>                            
+                             <div class="controls">
+                                <select class="select_language" name="select_language" id="select_language">
+                                     <option value="1">English</option>
+                                     <option value="2">Chinese</option>
+                                </select>
+                             </div>
+                        </div>
+                         <div class="control-group">
+                             <div class="control-label">
+                                 <label>Smart Phone Type</label>
+                             </div>
+                             <div class="controls">
+                                 <select class="smart_phone_type" name="smartphone" id="smartphone">
+                                     <option value="1">iPhone</option>
+                                     <option value="2">Android</option>
+                                     <option value="3">Blackberry</option>
+                                     <option value="4">none</option>                              
+                                </select>
+                             </div>
+                         </div>                                 
+                    </fieldset>
+                    <fieldset class="well the-fieldset"  style="width: 770px;width: 770px;padding-bottom: 0px;">
+                        <legend class="the-legend">BILLING INFORMATION</legend>
+                        <div class="bill_area">
+                            <div class="control-group" id="credit_num_area">                
+                                <div class="control-label">
+                                    <label>Credit Card</label>
+                                </div>
+                                <div class="controls">
+                                    <input type="text" autocomplete="off" placeholder="Credit Card Number" class="input-large" name="credit_num" id="credit_num" required/>
+                                </div>
+                            </div>
+                            <div class="control-group" id="expire_date_area">
+                                <div class="control-label">
+                                    <label>Expiration</label>
+                                </div>
+                                <div id="datetimepicker2" class="controls">
+                                    <div class="input-append date" id="ccDate" data-date="12-2015" data-date-format="mm/yyyy" viewMode="1" >
+                                        <input class="span2" id="expire_date"  name="expire_date" size="16" type="text" value="12-2015" required/>
+                                        <span class="add-on"><i class="icon-th"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-group" id="credit_ccv_area">
+                                <div class="control-label">
+                                    <label>CCV</label>
+                                </div>
+                                <div class="controls">
+                                    <input type="text" autocomplete="off" placeholder="Credit Card CCV" class="input-large" name="credit_ccv" id="credit_ccv" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="stripe-img" src="/stripe.png" />                       
+                    </fieldset>
+                    <fieldset class="well the-fieldset"  style="width: 770px;margin-bottom: 0px; padding-bottom: 0px;">
+                        <legend class="the-legend">BANK INFORMATIONS</legend>
+
+
+
+                        <div class="bill_area">
+                        <div class="control-group">
+                          <label class="control-label" for="checkboxes">Add Bank Account.</label>
+                          <div class="controls">
+                            <label class="checkbox inline" for="checkboxes-0">
+                              <input name="checkboxes" id="bankcheck" name="bankcheck" type="checkbox"/>
+                            </label>
+                          </div>
+                        </div>                            
+                            <div class="control-group" id="bankname_area">
+                                <div class="control-label">
+                                    <label style="width:160px;">Bank Name</label>
+                                </div>
+                                <div class="controls">
+                                    <input type="text" autocomplete="off" placeholder="Bank Name" class="input-large" name="bankName" id="bankName" disabled required/>
+                                </div>
+                            </div>                            
+                            <div class="control-group" id="routingNumber_area">
+                                <div class="control-label">
+                                    <label style="width:160px;">Routing number</label>
+                                </div>
+                                <div class="controls">
+                                    <input type="text" autocomplete="off" placeholder="Routing number" class="input-large" name="routingNumber" id="routingNumber" disabled required/>
+                                </div>
+                            </div>                        
+                            <div class="control-group" id="accountNumber_area">
+                                <div class="control-label">
+                                    <label style="width:160px;">Account number</label>
+                                </div>
+                                <div class="controls">
+                                    <input type="text" autocomplete="off" placeholder="Account number" class="input-large" name="accountNumber" id="accountNumber" disabled required/>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="stripe-img" src="/stripe.png" />
+                    </fieldset>
+                    <button type="submit" id="create_submit" class="btn btn-primary button-loading" data-loading-text="Loading..." style="margin:20px 0px 0px 190px;">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</template>

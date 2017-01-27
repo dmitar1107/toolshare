@@ -1,0 +1,271 @@
+<template name="myrentals">
+    <div class="container">
+        <div class="view">
+            <ul id="tabs" class="nav nav-tabs" data-tabs="tabs" style="margin-bottom: 0px;">
+                <li class="active"><a href="#active" data-toggle="tab">Active</a></li>
+                <li><a href="#reserved" data-toggle="tab">Reserved</a></li>
+                <li><a href="#completed" data-toggle="tab">Completed</a></li>
+                <!--li><a href="#myfeedback" data-toggle="tab">Feedback</a></li-->
+            </ul>
+            <div id="my-tab-content" class="tab-content">
+            	<div class="tab-pane active tab_inner" id="active">
+            		{{> active }}
+            	</div>
+            	<div class="tab-pane tab_inner" id="reserved">
+            		{{> reserved }}
+            	</div>
+            	<div class="tab-pane tab_inner" id="completed">
+            	</div>
+            </div>
+        </div>
+    </div>
+</template>
+<template name="active">
+
+	<table class="table table-hover">
+	    <thead>
+            <tr>
+                <th>Image</th>
+                <th>Tool Name</th>
+                <th>Category</th>
+                <th>Loan User</th>
+                <th>Price</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        	{{#each getActiveRentals}}
+        	<tr class="rentrow {{_id}}">
+        		<td><img src="{{getToolThumbnail toolId}}" class="r_thumbnail"/></td>
+        		<td><p>{{getToolName toolId}}</p></td>
+        		<td><p>{{getToolCat toolId}}</p></td>
+        		<td><p>{{getToolLoanUser loanuserId}}</p></td>
+        		<td><p>${{price}}</p></td>
+        		<td><p>{{getFormatedDates pickupDate}}</p></td>
+        		<td><p>{{getFormatedDates endDate}}</p></td>
+        	</tr>
+        	{{/each}}
+        </tbody>
+
+	</table>
+</template>
+<template name="rentalDetail">
+    {{#if serveCurrentIs "rentalActive" }}
+        {{> rentalActive}}
+    {{/if}}
+    {{#if serveCurrentIs "rentalReserved" }}
+        {{> rentalReserved}}
+    {{/if}}      
+</template>
+<template name="rentalActive">
+	<div class="home">
+		<div class="inner">
+			{{> flashMessages}}
+			<div class="r_left" style="width: 60%;">			
+				{{#with getRentalDetail}}
+					<div class="r_row">
+						<div class="r_col">
+							<img src="{{thumbnail}}" class="thumbnail" />
+						</div>
+						<div class="r_col">
+							<h4>{{toolname}}</h4>
+							<p class="r_desc">{{tooldesc}}</p>
+						</div>
+					</div>
+					<div class="r_row">
+						<div class="r_col">
+							<p class="lined_text"><span class="r_label">Period:&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="r_content">{{pickupDate}} ~ {{endDate}}</span></p>
+							<p class="lined_text"><span class="r_label">Loaner:&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="r_content">{{loanuser}}</span></p>
+							<p class="lined_text"><span class="r_label">Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="r_content">${{price}}</span></p>						
+						</div>
+						<div class="r_col">
+						</div>
+					</div>				
+				{{/with}}
+			</div>
+			<div class="r_right" style="width: 30%;">
+				<div class="r_panel">				
+					<p>
+						<button type="button" class="btn btn-primary btn-lg btn-block" id="changeDuartion">Change Duration</button>
+					</p>
+					<p>
+						<button type="button" class="btn btn-primary btn-lg btn-block" id="sendMessage">Send Message</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="modal fade" id="changeDurationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Change Duration</h4>
+        </div>
+        <div class="modal-body">
+			<div class="datetime_area">
+	            <div class="label">
+	                Pick up:
+	            </div>       
+	            <div class="date_area">
+	                <div id="datetimepicker1" class="controls">
+	                    <div class="input-append date" id="dpMonths"  data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+	                        <!--input class="span2" id="datepicker1" name="datepicker1" size="16" type="text" value="{{today}}"/-->
+	                        <input class="span2" id="datepicker1" name="datepicker1" size="16" type="text" value="" readonly />                        
+	                        <span class="add-on"><i class="icon-calendar"></i></span>
+	                    </div>                                        
+	                </div>
+	            </div>        	
+	            <div class="time_area">
+	                <div class="input-append bootstrap-timepicker">
+	                    <input id="timepicker1" type="text" class="input-small">
+	                    <span class="add-on"><i class="icon-time"></i></span>
+	                </div>
+	             </div>
+        	</div>
+			<div class="datetime_area">
+	            <div class="label">
+	                Return:&nbsp;
+	            </div>
+	            <div class="date_area">
+	                <div id="datetimepicker2" class="controls">
+	                    <div class="input-append date" id="dpMonths"  data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+	                        <!--input class="span2" id="datepicker2" name="datepicker2" size="16" type="text" value="{{today}}"/-->
+	                        <input class="span2" id="datepicker2" name="datepicker2" size="16" type="text" value="" readonly/>                        
+	                        <span class="add-on"><i class="icon-calendar"></i></span>
+	                    </div>                                        
+	                </div>
+	                
+	            </div>
+	            <div class="time_area">
+	                <div class="input-append bootstrap-timepicker">
+	                    <input id="timepicker2" type="text" class="input-small">
+	                    <span class="add-on"><i class="icon-time"></i></span>
+	                </div>            
+	            </div>
+	        </div>
+	    </div>     	        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="changeConfirm">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Message</h4>
+        </div>
+        <div class="modal-body">
+			<form class="form-horizontal" name="messageForm" id="messageForm">
+			<fieldset>
+
+			<!-- Form Name -->
+			<!-- <legend>Message to Loan User.</legend> -->
+
+			<!-- Text input-->
+			<div class="control-group">
+			  <label class="control-label" for="title" style="width: 80px;">Title</label>
+			  <div class="controls">
+			    <input id="title" name="title" placeholder="" class="input-xlarge" type="text">
+			    
+			  </div>
+			</div>
+
+			<!-- Textarea -->
+			<div class="control-group">
+			  <label class="control-label" style="width: 80px;" for="content">Content</label>
+			  <div class="controls">                     
+			    <textarea id="content" name="content" style="width: 300px; "></textarea>
+			  </div>
+			</div>
+
+			<!--div class="control-group">
+			  <label class="control-label" style="width: 80px;" for="content">Attach File</label>
+			  <div class="controls">                     
+			   <input type="file" name="uploadFile" id="uploadFile" />
+			  </div>
+			</div-->
+   			</fieldset>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	          <button type="submit" class="btn btn-primary">Submit</button>
+	        </div>			
+
+			</form>
+
+	    </div>     	        
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->  
+
+</template>
+<template name="rentalReserved">
+	<div class="home">
+		<div class="inner">
+			{{> flashMessages}}
+			<div class="r_left" style="width: 60%;">			
+				{{#with getRentalDetail}}
+					<div class="r_row">
+						<div class="r_col">
+							<img src="{{thumbnail}}" class="thumbnail" />
+						</div>
+						<div class="r_col">
+							<h4>{{toolname}}</h4>
+							<p class="r_desc">{{tooldesc}}</p>
+						</div>
+					</div>
+					<div class="r_row">
+						<div class="r_col">
+							<p class="lined_text"><span class="r_label">Period:&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="r_content">{{pickupDate}} ~ {{endDate}}</span></p>
+							<p class="lined_text"><span class="r_label">Loaner:&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="r_content">{{loanuser}}</span></p>
+							<p class="lined_text"><span class="r_label">Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="r_content">${{price}}</span></p>						
+						</div>
+						<div class="r_col">
+						</div>
+					</div>				
+				{{/with}}
+			</div>
+			<div class="r_right" style="width: 30%;">
+				<div class="r_panel">
+					<p>
+						You have nothing to work with until loan user response for your reservation.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+<template name="reserved">
+	<table class="table table-hover">
+	    <thead>
+            <tr>
+                <th>Image</th>
+                <th>Tool Name</th>
+                <th>Category</th>
+                <th>Loan User</th>
+                <th>Price</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        	{{#each getActiveRentals}}
+        	<tr class="rentrow {{_id}}">
+        		<td><img src="{{getToolThumbnail toolId}}" class="r_thumbnail"/></td>
+        		<td><p>{{getToolName toolId}}</p></td>
+        		<td><p>{{getToolCat toolId}}</p></td>
+        		<td><p>{{getToolLoanUser loanuserId}}</p></td>
+        		<td><p>${{price}}</p></td>
+        		<td><p>{{getFormatedDates pickupDate}}</p></td>
+        		<td><p>{{getFormatedDates endDate}}</p></td>
+        	</tr>
+        	{{/each}}
+        </tbody>
+	</table>	
+</template>

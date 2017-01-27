@@ -1,0 +1,100 @@
+.home {
+    position: relative;
+    width: 880px;
+    border-radius: 0px 0px 0px 0px;
+    background: rgba(158, 158, 158, 0.8);
+    padding: 10px 10px 10px 10px;
+    margin-left: auto;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom:0px;
+}
+
+.home_inner {
+    position: relative;
+    width: 880px;
+    height: 310px;
+    background: white;
+    border-radius: 5px;
+}
+
+.homeLinksArea{
+    float: left;
+    background: white;
+}
+
+.rent_btn {
+    position: absolute;
+    float: left;
+    display: inline-block;
+    background: rgb( 0,200, 0 );
+    border-radius: 6px 50px 50px 6px;
+    cursor:pointer;
+    top: 10px;
+    left: 10px;
+    height: 140px;
+    width: 500px;
+    padding: 20px 65px 20px 10px;
+    font:38px papyrus, sans-serif;
+    text-align: center;
+    color: white;
+    opacity:0.6;
+}
+
+.rent_btn:hover {
+    background: rgb( 0,200, 0 );
+    opacity:0.85;
+}
+
+.loan_btn {
+    position: absolute;
+    background: rgb( 242,88, 53 );
+    border-radius: 6px 50px 50px 6px;
+    cursor:pointer;
+    top: 160px;
+    left: 10px;
+    height: 140px;
+    font:38px papyrus, sans-serif;
+    opacity:0.8;
+    color: white;
+    padding-left: 10px;
+    padding-right: 25px;
+}
+
+.loan_btn:hover {
+    background: rgb( 242,88, 53 );
+    opacity:0.95;
+}
+
+#imageSliderHomeFrame {
+    position:relative;
+    float: right;
+    width: 500px;
+    height: 290px;
+    border-radius: 10px;
+    background: white;
+
+}
+
+#ribbon {width:111px;height:111px;position:absolute;top:-4px;left:-4px;background:url(ribbon.png) no-repeat;z-index:7;}
+
+#imageSliderHome {
+    position: relative;
+    float: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    width: 480px;
+    height: 270px;
+}
+#imageSliderHome img {
+    position:relative;
+}
+
+/* the link style (if an image is wrapped in a link) */
+#imageSliderHome a.imgLink {
+    z-index:2;
+    display:none;position:absolute;
+    top:0px;left:0px;border:0;padding:0;margin:0;
+    width:100%;height:100%;
+}

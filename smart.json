@@ -1,0 +1,35 @@
+{
+  "packages": {
+    "router": {},
+    "bootstrap-timepicker": {},
+    "custom-typeahead": {
+      "git": "https://github.com/wangli9142/cutom-typeahead.git"
+    },
+    "custom-multiselect": {
+      "git": "https://github.com/wangli9142/custom-multiselect.git"
+    },
+    "meteor-build-a-file-upload-package": {
+      "git": "https://github.com/EventedMind/meteor-build-a-file-upload-package.git"
+    },
+    "flash-messages": {},
+    "foundation-flash-messages": {},
+    "cron-tick": {},
+    "cron": {},
+    "jquery-ui": {},
+    "jquery-ui-bootstrap": {},
+    "x-editable-bootstrap": {},
+    "stripe": {},
+    "cookie": {},
+    "iron-router": {},
+    "bootboxjs": {},
+    "stringify-pretty": {},
+    "moment": {},
+    "bootstrap-datepicker2": {},
+    "jqbootstrapvalidation": {},
+    "bootstrap-slider-touch": {},
+    "nprogress": {},
+    "bootstrap-3": {},
+    "bootstrap-datetimepicker": {},
+    "underscore-string": {}
+  }
+}

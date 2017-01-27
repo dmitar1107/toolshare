@@ -1,0 +1,33 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+insecure
+preserve-inputs
+accounts-ui
+accounts-password
+email
+bootstrap
+bootstrap-timepicker
+jquery
+standard-app-packages
+custom-typeahead
+custom-multiselect
+page-js-ie-support
+flash-messages
+cron
+jquery-ui
+jquery-ui-bootstrap
+HTML5-History-API
+foundation-flash-messages
+cron-tick
+x-editable-bootstrap
+cookie
+iron-router
+stripe
+bootboxjs
+stringify-pretty
+bootstrap-datepicker2
+jqbootstrapvalidation
+bootstrap-slider-touch

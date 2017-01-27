@@ -1,0 +1,350 @@
+<template name="rentView">
+    {{#if serveCurrentIs "rent-location" }}
+        {{> rentLocationView}}
+    {{/if}}
+    {{#if serveCurrentIs "rent-list" }}
+        {{> rentListView}}
+    {{/if}}
+    {{#if serveCurrentIs "rent-item" }}
+        {{> rentItemView}}
+    {{/if}}
+    {{#if serveCurrentIs "rent-confirm" }}
+        {{> rentReserveView}}
+    {{/if}}    
+</template>
+
+<template name="rentListView">
+    <div class="rent">
+        {{> searchBar }}
+        {{> toolList}}
+    </div>
+</template>
+
+<template name="toolList">
+    <div class="toolMapArea">
+        <div class="toolList">
+            {{#each tools}}
+                {{#if flag}}
+                    <div class="toolListRow rentedOut">
+                {{else}}
+                    <div class="toolListRow">
+                {{/if}}
+            {{> rentCell}}
+            </div>
+            {{/each}}
+        </div>
+        <div class="toolMap" id="toolMap">
+        </div>        
+    </div>
+</template>
+
+<template name="searchBar">
+    <div class="searchBar">
+        <div class="searchBox" align="center">
+            <div class="search_area">
+                <div class="input-append">
+                    <span class="add-on"><i class="icon-search"></i></span>
+                    <!--input class="span2" id="searchInput" date-provide="typeahead" placeholder="Search" type="text" /-->
+                    <input id="searchInput" type="text" value="" class="span4" placeholder="Search tools..."/>                          
+                    <button class="btn" type="button" id="search_btn">Search</button>
+                      
+                </div>
+            </div>
+            <div class="arrange_area">
+                <div class="btn-toolbar" style="margin: 0;">
+                    <div class="btn-toolbar" style="margin: 0;">
+                        <div class="btn-group" id="sort_multiselect">
+                            <select id="sort" multiple="multiple">
+                                <option value="1">Best match</option>
+                                <option value="2">Distance</option>
+                                <option value="3">Price</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="rentCell">
+    <div class="rentCell {{_id}} {{flag}}">
+        <img class="picture" width="40" height="40" src={{thumbnail}}>
+        <p class="name">{{toolname}} ({{dist}}mile)</p>
+        <p class="address">${{price}}/week</p>
+        {{placeMarkers address city state lat lng}}
+    </div>
+</template>
+
+<template name="userlocation" >
+    <div class="rentLocationView">
+            {{> flashMessages}}
+            <form class="form-horizontal well" id="zipcdoe_form" data-validate="yes">
+                <legend style="margin-bottom:20px; text-align:center; font-size:38px;"><h2>View Listings in Your Area</h2></legend>
+                <div class="control-group">
+                    <label class="control-label rentLocationLabel" style="margin-right:10px; width:30%" for="fulladdress">Address:</label>
+                    <!--  <label class="control-label" id="zipareaLabel" for="fulladdress">Address: &nbsp;</label> -->
+                    <div class="controls">
+                        <input type="text" id="fulladdress" class="input-xlarge required" name="fulladdress" placeholder="Type an address near you..."  />
+                        <input type="hidden" name="lat" id="lat" value="" />
+                        <input type="hidden" name="lng" id="lng" value="" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                    <label class="checkbox" style="margin-left:20px; width:70%">
+                        <input type="checkbox" name="keepmecheck" id="keepmecheck" />Keep me informed about new listings and website updates
+                    </label>
+                    </div>
+                    <label class="control-label rentLocationLabel" style="margin-right:10px; width:30%" for="email">Email:</label>
+                    <div class="controls">
+                        <input id="email" name="email" placeholder="" class="input-xlarge" type="text" disabled/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <input class="rentLocationSubmit_btn" type="button" value="Next >>">
+                    </div>
+                </div>
+            </form>
+    </div>
+</template>
+
+<template name="rentItemView">
+    <div class="home">
+        <div class="rentItemView">
+            <div class="rentItemViewInner">
+                <div class="rentDetails">
+                        <p class="rentedOut_message">{{title}}</p>
+                        {{#with getCurrentItem}}
+                        <h3>{{toolname}}</h3>
+                        <div class="toolDetails {{_id}}">
+                            <div class="toolDescArea">
+                                <div class="comment more">{{tooldesc}}
+                                </div>
+                            </div>          
+                            <div class="toolImageArea" align="center">
+                                <a data-toggle="modal" href="#myThumbnailModal" >
+                                    <img class="thumbnail" src={{thumbnail}} width="100" height="80" alt="" title=""/>
+                                </a>
+
+                                <div class="modal fade" id="myThumbnailModal" style="display:none;padding:5px 5px 0 5px;">
+                                    <img src={{img}} width="500" height="350" alt="" title="" />
+                                </div>                  
+                            </div>
+                        </div>
+                        <div class="coinarea">
+                            <div class="coinleft" align="right">
+                                <div>
+                                    <p class="rentfor">Rent For:</br>{{price}}/wk</p>
+                                    <input type="hidden" name="week_price" id="week_price" value="{{price}}" />
+                                </div>
+                            </div>
+                            <div class="coinright">
+                                <div class="comparelabel">Compare to</div>
+                                <div class="comparecontent">
+                                    <table border="1" >
+                                        <tr>
+                                            <td>Home Depot</td>
+                                            <td>Lowes</td>
+                                            <td>Other Average</td>                      
+                                        </tr>
+                                        <tr>
+                                            <td>{{findClosestPrice "Home Depot" title toolcat }}</td>
+                                            <td>{{findClosestPrice "Lowes" title toolcat }}</td>
+                                            <td>{{findClosestPrice "Other" title toolcat }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rentforarea" align="right">
+                            <button class="btn btn-primary button-loading" id="reserve">Reserve Now</button>
+                            <!--button class="btn btn-info button-loading" id="back">Back</button-->
+                        </div>
+                        <div class="line">
+                        </div>
+
+                        <div id="detail_map"></div>
+                        <div class="line">
+                        </div>        
+                        <div class="accordion" id="accordion2" style="min-height:300px">
+                            <div class="accordion-group">
+                              <div class="accordion-heading" id="group1">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                                  <i class="icon-arrow-up"></i>Renter Information
+                                </a>
+                              </div>
+                              <div id="collapseOne" class="accordion-body in collapse" style="height: auto; ">
+                                <div class="accordion-inner">
+                                    <input type="hidden" id="tooluser" value="{{userid}}"/>
+                                    <input type="hidden" id="toolid" value="{{_id}}"/>
+                                    <div id="star"></div>
+                                    <div id="feedbacks">
+                                    {{#each getFeedbacks userid}}
+                                        <div class="feedbackarea">
+                                            <p class="feedback">{{renter.text}}</p>
+                                            <p class="feedbackusername">{{getRenterName renter.userid}}</p>
+                                        </div>
+                                    {{/each}}
+                                    </div>
+                                    <p id="more" value="0">more</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-group" id="group2">
+                              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                 <i class="icon-arrow-down"></i>
+                  Other Items in this Category
+                </a>
+              </div>
+              <div id="collapseTwo" class="accordion-body collapse" style="height: 0px; ">
+                <div class="accordion-inner" align="center">
+                    {{#each similartools _id toolcat}}
+                    <div class="similar_area">
+                        <img src="{{thumbnail}}" alt="{{toolname}}"/>
+                        <p>
+                            ${{price}}
+                        </p>
+                    </div>
+                    {{/each}}
+                </div>
+              </div>
+            </div>
+        </div>
+
+        
+       {{/with}}
+    </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="rentReserveView">
+    <div class="home">
+    {{#with getRserveData}}
+    <div class="rentReserverView" align="center">
+        <div class="reserverHeader">
+                {{> flashMessages}}
+                <div class="reserveText">
+                    <h1>{{toolname}}</h1>
+                    <p>Pick up location is {{tooldistance}} miles from your current location</p>
+                </div>
+                <div class="reserveImage">
+                    <img src="{{img}}" style="width: 60px;" class="thumbnail"/>
+                </div>
+        </div>
+        <div class="datetime_area">
+            <div class="label">
+                Pick up:
+            </div>       
+            <div class="date_area">
+                <div id="datetimepicker1" class="controls">
+                    <div class="input-append date" id="dpMonths"  data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+                        <!--input class="span2" id="datepicker1" name="datepicker1" size="16" type="text" value="{{today}}"/-->
+                        <input class="span2" id="datepicker1" name="datepicker1" size="16" type="text" value="" readonly />                        
+                        <span class="add-on"><i class="icon-calendar"></i></span>
+                    </div>                                        
+                </div>
+            </div>
+            <div class="time_area">
+                <div class="input-append bootstrap-timepicker">
+                    <input id="timepicker1" type="text" class="input-small">
+                    <span class="add-on"><i class="icon-time"></i></span>
+                </div>
+             </div>
+        </div>
+        <div class="datetime_area">
+            <div class="label">
+                Return:&nbsp;
+            </div>
+            <div class="date_area">
+                <div id="datetimepicker2" class="controls">
+                    <div class="input-append date" id="dpMonths"  data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+                        <!--input class="span2" id="datepicker2" name="datepicker2" size="16" type="text" value="{{today}}"/-->
+                        <input class="span2" id="datepicker2" name="datepicker2" size="16" type="text" value="" readonly/>                        
+                        <span class="add-on"><i class="icon-calendar"></i></span>
+                    </div>                                        
+                </div>
+                
+            </div>
+            <div class="time_area">
+                <div class="input-append bootstrap-timepicker">
+                    <input id="timepicker2" type="text" class="input-small">
+                    <span class="add-on"><i class="icon-time"></i></span>
+                </div>            
+            </div>
+        </div>
+        <div class="button_area" align="center">
+            <input type="button" class="btn btn-middle cancel_btn" id="reserver_back" value="Back">
+            <input type="button" class="btn btn-middle reserve_btn" id="reserve" data-toggle="modal" value="Reserve"/>
+        </div>
+        <div id="reserveModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Thank You</h3>
+            </div>
+            <div class="modal-body">
+                <p>You will receive a confirmation with pickup location once the reservation has been confirmed.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="reserve_ok">Ok</button>
+            </div>
+        </div>
+        <div id="creditInfo" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <p class="creditHeader">Your credit infos are unclear for us. </br>Please type the right informations for your application.</hp>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                <fieldset>
+                
+                <div class="control-group">
+                    <label class="control-label" for="paymentNumber">Card number</label>
+                    <div class="controls">
+                        <input id="paymentNumber" name="paymentNumber" placeholder="•••• •••• •••• ••••" class="input-large" required="" type="text">
+                    </div>
+                </div>
+                
+                <!-- Text input-->
+                <div class="control-group">
+                    <label class="control-label" for="paymentExpiry">Expires</label>
+                        <div id="datetimepicker2" class="controls">
+                            <div class="input-append date" id="ccDate" data-date="12-2015" data-date-format="mm/yyyy" viewMode="1" >
+                                <input class="span2" id="expires"  name="expires" size="16" type="text" value="12-2015">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                    </div>
+                </div>
+                
+                <!-- Text input-->
+                <div class="control-group">
+                    <label class="control-label" for="paymentName">Name on card</label>
+                    <div class="controls">
+                        <input id="paymentName" name="paymentName" placeholder="" class="input-large" type="text">
+                    </div>
+                </div>
+                
+                <!-- Text input-->
+                <div class="control-group">
+                    <label class="control-label" for="paymentCVC">Card code</label>
+                    <div class="controls">
+                        <input id="paymentCVC" name="paymentCVC" placeholder="CVC" class="input-small" required="" type="text">
+                    </div>
+                </div>
+                
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" id="save_credit">Save</button>
+            </div>
+        </div>
+    </div>
+    {{/with}}
+</div>
+</template>

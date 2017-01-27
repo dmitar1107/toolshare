@@ -1,0 +1,228 @@
+<template name="adminView">
+    <div class="container">
+        <div id="content" class="view">
+            <ul id="tabs" class="nav nav-tabs" data-tabs="tabs" style="margin-bottom: 0px;">
+                <li class="active"><a href="#stripe" data-toggle="tab">Stripe</a></li>
+                <li><a href="#adminToolCategories" data-toggle="tab">Tool Categories</a></li>
+                <li><a href="#adminTools" data-toggle="tab">Tools</a></li>
+                <li><a href="#users" data-toggle="tab">Users</a></li>
+                <li><a href="#adminPricing" data-toggle="tab">Pricing</a></li>
+                <li><a href="#serverinfo" data-toggle="tab">Server Info</a></li>
+            </ul>
+            <div id="my-tab-content" class="tab-content">
+                
+                <div class="tab-pane active tab_inner" id="stripe">
+                    {{> flashMessages}}
+                    <form class="form-horizontal">
+                    <fieldset>
+
+                    <!-- Form Name -->
+                    <legend>Payment Setting</legend>
+                    <!-- Text input-->
+                    <div class="control-group">
+                      <label class="control-label" for="secretkey">Secret Key</label>
+                      <div class="controls">
+                        <input id="secretkey" value="{{secretKey}}" name="secretkey" placeholder="Secret Key" class="input-xlarge" type="text">
+                        
+                      </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="control-group">
+                      <label class="control-label" for="publishablekey">Publishable Key</label>
+                      <div class="controls">
+                        <input id="publishablekey" value="{{publishableKey}}" name="publishablekey" placeholder="Publishable Key" class="input-xlarge" type="text">
+                        
+                      </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="control-group">
+                      <label class="control-label" for="insurancefee">Insurance Fee</label>
+                      <div class="controls">
+                        <input id="insurancefee" value="{{insuranceFee}}" name="insurancefee" placeholder="Insurance Fee" class="input-small" type="text">
+                        
+                      </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="control-group">
+                      <label class="control-label" for="transactionfee">Transaction Fee</label>
+                      <div class="controls">
+                        <input id="transactionfee" value="{{transactionFee}}" name="transactionfee" placeholder="Transaction Fee" class="input-small" type="text">
+                        
+                      </div>
+                    </div>
+
+
+                    </fieldset>
+                    </form>
+                    <!-- Button -->
+                    <div class="control-group">
+                      <label class="control-label" for="paymentSubmit"></label>
+                      <div class="controls">
+                        <button id="paymentSubmit" name="paymentSubmit" class="btn btn-primary">Submit</button>
+                      </div>
+                    </div>
+                </div>                
+                <div class="tab-pane tab_inner" id="adminToolCategories">
+                    <h4>Add new tool category:</h4>
+                    <div class="control-group">
+                        <div class="controls">
+                            <div class="input-append">
+                                <input type="text" name="puesto" id="adminAddCat_txt" class="input-xlarge" />
+                                <button class="btn" type="button" id="adminAddCat_btn">Go</button>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <span class="adminViewHeading"> Tool Categories:</span>
+                    <table class="table table-striped table-hover catList">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each toolcats}}
+                                <tr>
+                                    <td style="width: 75%;">{{categories}}</td>
+                                    <td style="width: 25%;"><a href="#editmodal" role="button" class="btn btn-warning edit_cat" data-toggle="modal">Edit</a>&nbsp;&nbsp;
+                                        <a href="#" role="button" class="btn btn-danger remove_cat">Remove</a></td>
+                                    
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>                    
+                    </div>
+                <div class="tab-pane tab_inner" id="adminTools">
+                    <table class="table table-hover table-striped sortable">
+                        <thead>
+                            <tr>
+                                <th style="width: 80px;">Image</th>
+                                <th style="width: 150px;">Name</th>
+                                <th style="width: 150px;">Category</th>
+                                <th style="width: 150px">Created</th>
+                                <th style="width: 100px">Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody> 
+                            {{#each toolData}}                        
+                            <tr>
+                                <td><img class="thumbnail" src="{{thumbnail}}"></td>
+                                <td><p>{{toolname}}</p></td>
+                                <td><p>{{getCategoryName toolcat}}</p></td>
+                                <td><p>{{getFormattedDate created}}</p></td>
+                                <td><p>${{price}}</p></td>
+                                <td>
+                                    {{#if this.a_active}}
+                                        <button class="deactive_btn btn btn-warning" data-id="{{_id}}"> <i class="icon-remove" /> Deactive</button>                                           
+                                    {{else}}
+                                        <button class="active_btn btn btn-success" data-id="{{_id}}"> <i class="icon-ok" /> Active</button>
+                                    {{/if}}
+                                    <button class="remove_btn btn btn-danger" data-id="{{_id}}"> <i class="icon-trash" /> Remove</button>                                     
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>                    
+                </div>
+                <div class="tab-pane" id="users">
+                    <h1>Users</h1>
+                    <span class="adminViewHeading">Users:</span>
+                    {{#each users}}
+                        <p>{{username}}, {{emails}}</p>
+                    {{/each}}
+                </div>
+                <div class="tab-pane tab_inner" id="adminPricing">
+                    <h2>Competitor Pricing</h2>
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <form class="form-horizontal">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Company</th>
+                                        <th>Description</th>
+                                        <th>Category</th>
+                                        <th>Price</th>                                        
+                                    </tr>
+                                </thead>
+                                <tbody>                                
+                                    <tr>
+                                        <td>
+                                            <input type="text" style="width:160px" id="edit_company" placeholder="Company" required/>
+                                        </td>
+                                        <td class="span1">
+                                            <input type="text" style="width:240px" id="edit_descr" placeholder="Description" required/>
+                                        </td>
+                                        <td class="span1">
+                                            <select style="width:160px" class="loanStepOneInput" id="sel_cat">
+                                                {{#each toolcats }}
+                                                <option value={{_id}}>{{categories}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </td>
+                                        <td class="span1">
+                                            <input type="number" style="width:80px" id="edit_price" placeholder="Price" required />
+                                        </td>
+                                        <td class="span1">
+                                            <input type="submit" class="btn btn-success" id="btn_AddPrice" value="Add"/>
+                                        </td>
+                                    </tr>
+                                {{#each prices}}
+                                <tr>
+                                    <td class="span1">
+                                        {{company}}
+                                    </td>
+                                    <td class="span1">
+                                        {{descr}}
+                                    </td>
+                                    <td class="span1">
+                                        {{getPriceCat cat}}
+                                    </td>
+                                    <td class="span1">
+                                        {{price}}
+                                    </td>
+                                    <td class="span1">
+                                        <input type="button" class="btn btn-danger btn_DeletePrice" id={{_id}} value="Remove"/>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                            </table>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="serverinfo">
+                    <input type="button" class="btn btn-success" id="getserverTime" value="Server Time"/>
+                    <p class="serverTime"></p>
+                    <input type="button" class="btn btn-success" id="getRental" value="Get Rental Table"/>
+                    <p class="rental"></p>
+                    <input type="button" class="btn btn-success" id="getPickupConfirm" value="Get Pickup Confirm"/>
+                    <input type="text" id="rentalID" value="" />
+                    <p class="pickupconfirm"></p>         
+                    <input type="button" class="btn btn-success" id="getTime" value="GetTime" />
+                    <input type="button" class="btn btn-success" id="getServerTime" value="GetServerTime" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal hide fade" id="editmodal" role="dialog">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h3 id="myModalLabel">Update your category!</h3>
+        </div>
+        <div class="modal-body" align="center">
+            <input type="text" id="categoryname" />
+            <input type="hidden" id="category_id"/>
+        </div>
+        <div calss="modal-footer" align="center" style="padding:10px;">
+            <button class="btn btn-primary save_change">Save changes</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>      
+        </div>
+    </div>
+</template>
